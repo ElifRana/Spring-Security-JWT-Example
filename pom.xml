@@ -50,6 +50,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- API, java.xml.bind module -->
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
