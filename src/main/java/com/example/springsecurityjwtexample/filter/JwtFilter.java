@@ -25,10 +25,12 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
+        //istekle ilgili header kısmında Authorization bilgisini alırız
         final String authorizationHeader = request.getHeader("Authorization");
         String jwt = null;
         String userName = null;
 
+        //eğer authorization bilgisi içerisinde Bearer bilgisi varsa bu jwt ile alakalı olduğu anlamındadır.
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwt = authorizationHeader.substring(7);
             userName = jwtUtil.extractUsername(jwt);
